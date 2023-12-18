@@ -1,0 +1,17 @@
+{
+  "name": "web3-lulu-bot",
+  "module": "cli.ts",
+  "type": "module",
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@cosmjs/proto-signing": "^0.32.1",
+    "@cosmjs/stargate": "^0.32.1",
+    "commander": "^11.1.0",
+    "cosmos-lib": "^1.1.0"
+  }
+}

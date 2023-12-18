@@ -1,0 +1,21 @@
+# node list, https://atomscan.com/directory/celestia 
+endpoint = "https://public-celestia-rpc.numia.xyz"
+# 助记词
+Phrase = ""
+#默认使用第一个前面挖矿，对应ok等其他钱包的账号索引
+MinerIndex = 0
+ChainSymBol = "celestia"
+TokenDenom="utia"
+GasLimit = 100000
+GasPrice = 10000
+MintAmount = 10000
+#一次脚本执行n次循环，默认只会挖一次
+MintTimes = 2
+#每次循环休眠时间，单位：毫秒
+SleepMS = 200
+#铭文主体
+[posy]
+#根据官方参数配置
+Amt = 10000
+Tick = "cias"
+Protol = "cia-20"
