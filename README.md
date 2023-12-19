@@ -43,3 +43,10 @@ bun run cli.ts ierc-20
 ```
 具体配置，在ierc20/config.toml文件下，按需求修改即可
 
+### 挖INJS
+
+``` shell
+bun run cli.ts injs  
+```
+具体配置，在injs/config.toml文件下，按需求修改即可
+
