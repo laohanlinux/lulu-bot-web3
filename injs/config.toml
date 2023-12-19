@@ -1,7 +1,7 @@
 endPoint="https://rpc.ankr.com/eth"
 gasLimit=28000
 sleepMS=0
-minerIndex = 1
+minerIndex = 0
 chainId = 1
 # 辣鸡，还不能转给自己
 dstAddress="inj15jy9vzmyy63ql9y6dvned2kdat2994x5f4ldu4"
