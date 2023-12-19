@@ -8,6 +8,8 @@ import {
     GetKeyPair
 } from "./rsa/crypto_rsa";
 import {getCelestiaWallet, loadPhraseFromConfig, transferCelestia} from "./cias/mint";
+import {mineIERC20} from "./ierc20/mint.ts";
+import * as path from "path";
 
 const program = new Command();
 program.name('bot')
@@ -32,6 +34,15 @@ program.command("cias-20")
         }
         let wallet = await getCelestiaWallet(phrase);
         await transferCelestia(wallet);
+    });
+
+program.command('ierc-20')
+    .description('mint ierc20')
+    .option('-w, --wallet <string>', 'wallet')
+    .option('-k, --key <string>', 'rsa private key for decrypt wallet', 'id_rsa')
+    .action(async (opts) => {
+        let phrase = (await DecryptedFile(opts.wallet, opts.key)).toString('utf-8').trim();
+        await mineIERC20(phrase);
     });
 
 program.command('encrypt-file')
