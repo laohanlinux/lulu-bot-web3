@@ -11,7 +11,10 @@
   "dependencies": {
     "@cosmjs/proto-signing": "^0.32.1",
     "@cosmjs/stargate": "^0.32.1",
+    "@injectivelabs/networks": "^1.14.4",
+    "@injectivelabs/sdk-ts": "^1.14.4",
     "commander": "^11.1.0",
-    "cosmos-lib": "^1.1.0"
+    "cosmos-lib": "^1.1.0",
+    "ethers": "^6.9.0"
   }
 }

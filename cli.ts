@@ -10,12 +10,33 @@ import {
 import {getCelestiaWallet, loadPhraseFromConfig, transferCelestia} from "./cias/mint";
 import {mineIERC20} from "./ierc20/mint.ts";
 import * as path from "path";
+import {mintINJS} from "./injs/mint.ts";
+import {sleep} from "bun";
 
 const program = new Command();
 program.name('bot')
     .description('A bot Cli to do web3')
     .version('0.0.1')
 
+
+program.command("injs")
+    .description("mint injs")
+    .option("-w, --wallet <string>", 'wallet', '')
+    .option("-k, --key <string>", 'rsa private key for decrypt wallet', 'id_rsa')
+    .action(async (opts) => {
+        let phrase = '';
+        if (opts.wallet.length > 0) {
+            phrase = (await DecryptedFile(opts.wallet, opts.key)).toString('utf-8').trim();
+        }
+        for (let i = 0; i < 1000; i++) {
+            try {
+                await mintINJS(phrase)
+            } catch (e) {
+                console.log(e);
+            }
+            await sleep(1000);
+        }
+    });
 program.command("cias-20")
     .description("mint cias")
     .option("-e, --endpoint <string>", 'rpc-node', 'https://public-celestia-rpc.numia.xyz')
