@@ -10,7 +10,7 @@
 
 ### MacOS，Linux，WSL 推荐使用Bun
 
-```
+``` shell
 echo '安装bun'
 curl -fsSL https://bun.sh/install | bash
 echo "安装依赖"
@@ -23,7 +23,7 @@ bun install
 - https://nodejs.org/en
 - https://www.npmjs.com/
 
-```
+``` shell
 npm install
 ```
 
@@ -31,7 +31,15 @@ npm install
 
 ### 挖Celestia
 
-```
+``` shell
 bun run cli.ts cias-20  
 ```
-具体配置，再cias/config.toml文件下，按需求修改即可
+具体配置，在cias/config.toml文件下，按需求修改即可
+
+### 挖IERC-20
+
+``` shell
+bun run cli.ts ierc-20  
+```
+具体配置，在ierc20/config.toml文件下，按需求修改即可
+

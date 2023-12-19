@@ -1,0 +1,9 @@
+endPoint="https://rpc.ankr.com/eth"
+gasLimit=28000
+sleepMS=0
+minerIndex = 1
+chainId = 1
+[posy]
+tick="dog"
+p="ierc-20"
+amt=2
