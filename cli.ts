@@ -9,7 +9,6 @@ import {
 } from "./rsa/crypto_rsa";
 import {getCelestiaWallet, loadPhraseFromConfig, transferCelestia} from "./cias/mint";
 import {mineIERC20} from "./ierc20/mint.ts";
-import * as path from "path";
 import {mintINJS} from "./injs/mint.ts";
 import {sleep} from "bun";
 
@@ -28,15 +27,13 @@ program.command("injs")
         if (opts.wallet.length > 0) {
             phrase = (await DecryptedFile(opts.wallet, opts.key)).toString('utf-8').trim();
         }
-        for (let i = 0; i < 1000; i++) {
-            try {
-                await mintINJS(phrase)
-            } catch (e) {
-                console.log(e);
-            }
-            await sleep(1000);
+        try {
+            await mintINJS(phrase)
+        } catch (e) {
+            console.log(e);
         }
     });
+
 program.command("cias-20")
     .description("mint cias")
     .option("-e, --endpoint <string>", 'rpc-node', 'https://public-celestia-rpc.numia.xyz')
