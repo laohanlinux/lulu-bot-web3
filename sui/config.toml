@@ -1,0 +1,21 @@
+# node list, https://atomscan.com/directory/celestia
+endPoint = "https://fullnode.mainnet.sui.io:443"
+# 助记词
+phrase = ""
+#默认使用第一个前面挖矿，对应ok等其他钱包的账号索引
+minerIndex = 0
+ChainSymBol = "celestia"
+TokenDenom = "utia"
+GasLimit = 100000
+GasPrice = 10000
+MintAmount = 10000
+#一次脚本执行n次循环，默认只会挖一次
+MintTimes = 2
+#每次循环休眠时间，单位：毫秒
+SleepMS = 200
+#铭文主体
+[posy]
+#根据官方参数配置
+amt = 10000
+tick = "ShiB"
+p = "suirc-20"

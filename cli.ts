@@ -11,6 +11,7 @@ import {getCelestiaWallet, loadPhraseFromConfig, transferCelestia} from "./cias/
 import {mineIERC20} from "./ierc20/mint.ts";
 import {mintINJS} from "./injs/mint.ts";
 import {sleep} from "bun";
+import {mintSuIRC20} from "./sui/mint.ts";
 
 const program = new Command();
 program.name('bot')
@@ -29,6 +30,22 @@ program.command("injs")
         }
         try {
             await mintINJS(phrase)
+        } catch (e) {
+            console.log(e);
+        }
+    });
+
+program.command("suiIRC")
+    .description("mint suiIRC")
+    .option("-w, --wallet <string>", 'wallet', '')
+    .option("-k, --key <string>", 'rsa private key for decrypt wallet', 'id_rsa')
+    .action(async (opts) => {
+        let phrase = '';
+        if (opts.wallet.length > 0) {
+            phrase = (await DecryptedFile(opts.wallet, opts.key)).toString('utf-8').trim();
+        }
+        try {
+            await mintSuIRC20(phrase);
         } catch (e) {
             console.log(e);
         }

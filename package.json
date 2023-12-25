@@ -13,6 +13,7 @@
     "@cosmjs/stargate": "^0.32.1",
     "@injectivelabs/networks": "^1.14.4",
     "@injectivelabs/sdk-ts": "^1.14.4",
+    "@mysten/sui.js": "^0.48.1",
     "commander": "^11.1.0",
     "cosmos-lib": "^1.1.0",
     "ethers": "^6.9.0"
