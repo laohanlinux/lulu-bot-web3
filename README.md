@@ -50,3 +50,12 @@ bun run cli.ts injs
 ```
 具体配置，在injs/config.toml文件下，按需求修改即可
 
+### 挖SUI
+
+https://www.suimint.io/
+
+``` shell
+bun run cli.ts suiIRC  
+```
+具体配置，在sui/config.toml文件下，按需求修改即可
+
