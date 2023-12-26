@@ -50,18 +50,20 @@ export async function mintSuIRC20(phrase: string) {
     const client = new SuiClient({url: config.endPoint});
     let ctx = new SuiCtx(client, wallet);
     console.log(ctx.GetWallet().toSuiAddress(), "balance:", await ctx.GetMySuiBalance());
-
     let tx = new TransactionBlock();
-    const r = tx.splitCoins(tx.gas, [0]);
+    const [r] = tx.splitCoins(tx.gas, [tx.pure(BigInt(0))]);
     // PacketId + Module + Function
     const target = "0x2dd4e2523c0121c7e8405977e1d3909a8631df313934e965c472efc941ee3484::Operation::mint";
-    const data = "{\"p\":\"suirc-20\",\"tick\":\"ShiB\",\"op\":\"mint\",\"amt\":\"100\"}";
-    const moveRes = tx.moveCall({
-        target: target,
-        typeArguments: ["0x2::sui::SUI"],
-        arguments: [r, tx.pure(data, "0x1::string::String")]
+    const data = JSON.stringify({
+        p: config.posy.p,
+        tick: config.posy.tick,
+        op: "mint",
+        amt: config.posy.amt.toString(),
     });
-    console.log(moveRes);
+    tx.moveCall({
+        target: target,
+        arguments: [r, tx.pure(data)]
+    });
     const result = await ctx.GetClient().signAndExecuteTransactionBlock({signer: ctx.GetWallet(), transactionBlock: tx});
     console.log(result);
 }
